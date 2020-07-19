@@ -48,7 +48,7 @@
                 <div class="new-comment">
                     <input *ngIf="!session.data" [formControl]="commentGroup.get('name')" placeholder="Your Name">
                     <textarea [formControl]="commentGroup.get('text')" placeholder="Comment text"></textarea>
-                    <button (click)="submitComment()">Add comment</button>
+                    <button [disabled]="!commentGroup.get('name').value || !commentGroup.get('text').value" (click)="submitComment()">Add comment</button>
                 </div>
             </div>
         </div>
