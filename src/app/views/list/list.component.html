@@ -1,4 +1,5 @@
 <div class="container">
+    <input [formControl]="filter" placeholder="Search for feeds">
     <div class="feed" *ngFor="let feed of displayedFeeds" [routerLink]="['/feeds/' + feed.id]">
         <div class="avatar">
             <img [src]="'https://api.adorable.io/avatars/120/' + feed.parsedAuthor">
