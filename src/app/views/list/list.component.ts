@@ -14,7 +14,7 @@ const escape: RegExp = new RegExp(/[.*+?^${}()|[\]\\]/g);
 export class ListComponent extends HooksWatcher implements OnInit {
 
   public displayedFeeds: Feed[] = [];
-  private allFeeds: Feed[] = [];
+  public allFeeds: Feed[] = [];
   public filter: FormControl = new FormControl('');
 
   constructor(private feeds: FeedsService) {

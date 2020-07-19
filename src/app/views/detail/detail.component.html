@@ -4,10 +4,11 @@
         <button class="secondary" (click)="editMode = true">Edit</button>
         <button class="secondary" (click)="deleteFeed()">Delete feed</button>
     </div>
-    <div class="container card" *ngIf="editMode; else normalMode">
+    <div class="edit container card" *ngIf="editMode; else normalMode">
         <input [formControl]="formGroup.get('name')" placeholder="Name">
         <textarea [formControl]="formGroup.get('text')" placeholder="Text"></textarea>
         <button [disabled]="!formGroup.get('name').value || !formGroup.get('text').value" (click)="submit()">Save feed</button>
+        <button class="secondary" [routerLink]="['/feeds']">Back</button>
     </div>
     <ng-template #normalMode>
         <div class="display-mode">
