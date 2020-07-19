@@ -6,6 +6,11 @@ import { LayoutComponent } from 'src/app/components/layout/layout.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: LayoutComponent,
     children: [
       {
@@ -21,6 +26,11 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./views/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: '**',
+    redirectTo: '/login',
+    pathMatch: 'full'
   }
 ];
 

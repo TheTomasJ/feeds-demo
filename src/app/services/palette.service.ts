@@ -32,10 +32,10 @@ export class PaletteService {
         cc: '#FFFFFF'
       } :
       {
-        bg1: '#EEEEEE',
-        bg2: '#F5F5F5',
-        bg3: '#FAFAFA',
-        bg4: '#FFFFFF',
+        bg1: '#FFFFFF',
+        bg2: '#FAFAFA',
+        bg3: '#F5F5F5',
+        bg4: '#EEEEEE',
         cm: '#FFFFFF',
         cc: '#000000'
       };

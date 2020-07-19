@@ -16,6 +16,10 @@ export class SessionService {
   constructor(private router: Router) {
   }
 
+  get displayName(): string {
+    return this.data?.name || 'Anonymous User';
+  }
+
   public attemptLogin(email: string, password: string): Observable<unknown> {
     return of(true).pipe(
       delay(400),
@@ -24,8 +28,6 @@ export class SessionService {
           name: email.split('@')[0].split('.').map(e => e.charAt(0).toLocaleUpperCase() + e.slice(1)).join(' '),
           token: 'somefakejwttoken'
         }
-
-        console.log(this.data);
       })
     );
   }

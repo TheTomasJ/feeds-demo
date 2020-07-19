@@ -1,1 +1,56 @@
-<p>detail works!</p>
+<ng-container *ngIf="formGroup">
+    <div class="actions" *ngIf="!editMode">
+        <button [routerLink]="['/feeds']">< Back to list</button>
+        <button class="secondary" (click)="editMode = true">Edit</button>
+        <button class="secondary" (click)="deleteFeed()">Delete feed</button>
+    </div>
+    <div class="container card" *ngIf="editMode; else normalMode">
+        <input [formControl]="formGroup.get('name')" placeholder="Name">
+        <textarea [formControl]="formGroup.get('text')" placeholder="Text"></textarea>
+        <button (click)="submit()">Save feed</button>
+    </div>
+    <ng-template #normalMode>
+        <div class="display-mode">
+            <div class="main card">
+                <div class="title">
+                    {{ fetched.name }}
+                </div>
+                <div class="meta">
+                    {{ fetched.parsedAuthor }}, {{ fetched.timestamp | date }}
+                </div>
+                <div class="text">
+                    {{ fetched.text }}
+                </div>
+                <div class="likes">
+                    <span class="count">{{ fetched.likes}} Likes</span>
+                    <span class="toggle" (click)="likeToggle()">
+                        {{ liked ? 'Remove Like' : 'Add Like' }}
+                    </span>
+                </div>
+            </div>
+            <div class="comments card">
+                <div class="header">Comments ({{ fetched.comments.length }})</div>
+                <div class="comment" *ngFor="let comment of fetched.comments">
+                    <img class="avatar" [src]="'https://api.adorable.io/avatars/120/' + comment.name">
+                    <div class="comment-data">
+                        <div class="title">
+                            <span class="name">{{ comment.name }}, </span>
+                            <span class="when">{{ comment.timestamp | date }}</span>
+                        </div>
+                        <div class="text">
+                            {{ comment.text }}
+                        </div>
+                    </div>
+                    <div class="remove" (click)="removeComment(comment.id)">
+                        <img src="/assets/cancel-circle.svg">
+                    </div>
+                </div>
+                <div class="new-comment">
+                    <input *ngIf="!session.data" [formControl]="commentGroup.get('name')" placeholder="Your Name">
+                    <textarea [formControl]="commentGroup.get('text')" placeholder="Comment text"></textarea>
+                    <button (click)="submitComment()">Add comment</button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</ng-container>

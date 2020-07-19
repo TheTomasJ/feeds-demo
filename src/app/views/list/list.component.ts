@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FeedsService } from 'src/app/services/feeds.service';
 import { HooksWatcher } from 'src/app/models/hooks-watcher';
+import { Feed } from 'src/app/models/feeds';
 
 @Component({
   selector: 'app-list',
@@ -8,6 +9,8 @@ import { HooksWatcher } from 'src/app/models/hooks-watcher';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent extends HooksWatcher implements OnInit {
+
+  public displayedFeeds: Feed[] = [];
 
   constructor(private feeds: FeedsService) {
     super();
@@ -17,7 +20,7 @@ export class ListComponent extends HooksWatcher implements OnInit {
     this.feeds.getFeeds()
       .pipe(this.takeUntilDestroyed())
       .subscribe(feeds => {
-        console.log(feeds);
+        this.displayedFeeds = feeds;
       });
   }
 

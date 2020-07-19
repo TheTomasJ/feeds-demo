@@ -7,12 +7,10 @@
         </ng-template>
     </div>
     <div class="session-info">
-        <ng-container *ngIf="session.data; else anonymous">
-            <div class="user">{{ session.data.name }}</div>
-            <div class="action" (click)="session.logout()">Log Out</div>
-        </ng-container>
+        <div class="user">{{ session.displayName }}</div>
+
+        <div *ngIf="session.data; else anonymous" class="action" (click)="session.logout()">Log Out</div>
         <ng-template #anonymous>
-            <div class="user">Anonymous user</div>
             <div class="action" [routerLink]="['/login']">Log In</div> 
         </ng-template>
     </div>

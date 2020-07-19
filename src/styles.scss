@@ -12,19 +12,30 @@ app-root {
     width: 100%;
 }
 
-input {
-    height: 40px;
+input, textarea {
     border-radius: 4px;
     border: 1px solid $bg-1;
     outline: none;
-    box-shadow: 0 0 0 20px inset $bg-1;
     color: $color-contrast;
     padding: 8px 16px;
     box-sizing: border-box;
+    background-color: $bg-4;
+    width: 100%;
+}
+
+input {
+    height: 40px;
+    box-shadow: 0 0 0 20px inset $bg-4;
 
     &:-webkit-autofill {
         -webkit-text-fill-color: $color-contrast !important;
     }
+}
+
+textarea {
+    height: 400px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    resize: none;
 }
 
 button {
@@ -35,6 +46,7 @@ button {
     background: $color-primary;
     border: 1px solid $bg-2;
     border-radius: 4px;
+
     cursor: pointer;
     &:hover {
         background: $color-primary-active;
@@ -43,4 +55,23 @@ button {
         opacity: 0.4;
         cursor: default;
     }
+
+    &.secondary {
+        background-color: $bg-1;
+        color: $color-primary;
+        &:hover {
+            background: $bg-2;
+        }
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.card {
+    background-color: $bg-1;
+    border-radius: 8px;
+    padding: 16px;
 }

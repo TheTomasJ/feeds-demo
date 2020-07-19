@@ -1,1 +1,16 @@
-<p>list works!</p>
+<div class="container">
+    <div class="feed" *ngFor="let feed of displayedFeeds" [routerLink]="['/feeds/' + feed.id]">
+        <div class="avatar">
+            <img [src]="'https://api.adorable.io/avatars/120/' + feed.parsedAuthor">
+        </div>
+        <div class="preview">
+            <div class="name">{{ feed.name }}</div>
+            <div class="info">
+                <span class="created">{{ feed.timestamp | date }}</span>
+                <span class="likes">(Likes: {{ feed.likes }} | Comments: {{ feed.comments.length }})</span>
+            </div>
+            <div class="text">{{ feed.text }}</div>
+        </div>   
+    </div>
+    <button class="add-new" [routerLink]="['/feeds/new']">Add new feed</button>
+</div>

@@ -1,0 +1,53 @@
+@import "src/app/theming/colors.scss";
+
+.feed {
+    border: 1px solid $bg-4;
+    background-color: $bg-1;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 0 10px -8px $dark-alpha;
+    display: flex;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 0 16px -8px $dark-alpha;
+    }
+
+    .avatar {
+        width: 20%;
+        max-width: 120px;
+        margin-right: 16px;
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+    }
+
+    .preview {
+        flex: 1;
+
+        .info {
+            margin-bottom: 8px;
+        }
+
+        .likes {
+            margin-left: 16px;
+        }
+
+        .name {
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 40px;
+        }
+        
+        .created {
+            color: $color-primary;
+            font-weight: 700;
+        }
+
+        .text {
+            color: $color-secondary;
+        }
+    }
+}
