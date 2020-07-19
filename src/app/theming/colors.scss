@@ -1,0 +1,15 @@
+$bg-1: var(--bg1);
+$bg-2: var(--bg2);
+$bg-3: var(--bg3);
+$bg-4: var(--bg4);
+
+$dark-alpha: rgba(0, 0, 0, 0.5);
+
+$color-primary: #2196f3;
+$color-primary-active: darken($color-primary, 5%);
+$color-primary-disabled: lighten($color-primary, 40%);
+$color-primary-contrast: #fff;
+$color-secondary: #607d8b;
+$color-secondary-contrast: #fff;
+$color-main: var(--cm);
+$color-contrast: var(--cc);

@@ -1,0 +1,46 @@
+@import "src/app/theming/colors.scss";
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: $color-contrast;
+}
+app-root {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+input {
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid $bg-1;
+    outline: none;
+    box-shadow: 0 0 0 20px inset $bg-1;
+    color: $color-contrast;
+    padding: 8px 16px;
+    box-sizing: border-box;
+
+    &:-webkit-autofill {
+        -webkit-text-fill-color: $color-contrast !important;
+    }
+}
+
+button {
+    height: 40px;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    color: $color-primary-contrast;
+    background: $color-primary;
+    border: 1px solid $bg-2;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        background: $color-primary-active;
+    }
+    &:disabled {
+        opacity: 0.4;
+        cursor: default;
+    }
+}

@@ -1,0 +1,9 @@
+<div class="login-box">
+    <div class="header">Login</div>
+    <input [formControl]="email">
+    <input [formControl]="password" type="password">
+    <button [disabled]="!password.value" (click)="submit()">Log in</button>
+    <div class="no-login" [routerLink]="['/feeds']">
+        Continue without login
+    </div>
+</div>

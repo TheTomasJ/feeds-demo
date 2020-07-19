@@ -1,0 +1,58 @@
+@import "src/app/theming/colors.scss";
+
+:host {
+    display: flex;
+    height: 100%;
+    flex-flow: column;
+    background-color: $bg-4;
+}
+
+.nav {
+    min-height: 48px;
+    box-sizing: border-box;
+    box-shadow: 0 0 12px -4px $dark-alpha;
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    padding: 24px;
+    overflow: auto;
+}
+
+.brand {
+    font-size: 20px;
+    padding: 14px 24px;
+    margin-right: auto;
+}
+
+.session-info {
+    margin-left: 8px;
+    display: flex;
+    padding-right: 16px;
+
+    .user, .action {
+        padding: 14px 8px;
+        margin-left: 8px;
+    }
+    
+    .action {
+        cursor: pointer;
+        &:hover {
+            background-color: $bg-2;
+        }
+    }
+}
+
+.icon {
+    margin-left: 8px;
+    img {
+        max-height: 20px;
+        max-width: 20px;
+        margin-top: 14px;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.75;
+        }
+    }
+}

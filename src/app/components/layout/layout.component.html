@@ -1,0 +1,22 @@
+<div class="nav">
+    <div class="brand">Feeds demo</div>
+    <div class="icon" (click)="palette.toggle()">
+        <img *ngIf="palette.darkMode; else normal" src="/assets/sun-stroke.svg">
+        <ng-template #normal>
+            <img src="/assets/moon-stroke.svg">
+        </ng-template>
+    </div>
+    <div class="session-info">
+        <ng-container *ngIf="session.data; else anonymous">
+            <div class="user">{{ session.data.name }}</div>
+            <div class="action" (click)="session.logout()">Log Out</div>
+        </ng-container>
+        <ng-template #anonymous>
+            <div class="user">Anonymous user</div>
+            <div class="action" [routerLink]="['/login']">Log In</div> 
+        </ng-template>
+    </div>
+</div>
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
