@@ -7,6 +7,8 @@ import { HooksWatcher } from 'src/app/models/hooks-watcher';
 import { SessionService } from 'src/app/services/session.service';
 import { FakeSocketEventsService } from 'src/app/services/fake-socket-events.service';
 
+const LIKE_LS_PREFIX = 'liked';
+
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
@@ -55,9 +57,14 @@ export class DetailComponent extends HooksWatcher implements OnInit {
   private fetchByID(): void {
     this.feeds.getFeed(+this.detailID)
       .pipe(this.takeUntilDestroyed())
-      .subscribe(feed => {
-        this.inject(feed);
-      });
+      .subscribe(
+        feed => {
+          this.inject(feed);
+        },
+        _ => {
+          this.router.navigateByUrl('/feeds');
+        }
+      );
   }
 
   private getGroup(): FormGroup {
@@ -78,6 +85,12 @@ export class DetailComponent extends HooksWatcher implements OnInit {
 
     if(data) {
       this.formGroup.patchValue(data);
+
+      try {
+        this.liked = !!localStorage.getItem(LIKE_LS_PREFIX + data.id);
+      } catch {
+        console.warn('Could not initialize liked state from LS');
+      }
     } else {
       this.formGroup.patchValue({
         name: '',
@@ -115,6 +128,17 @@ export class DetailComponent extends HooksWatcher implements OnInit {
       this.formGroup.get('likes').value + (this.liked ? -1 : 1)
     );
     this.liked = !this.liked
+
+    try {
+      if(this.liked) {
+        localStorage.setItem(LIKE_LS_PREFIX + this.fetched.id, 'true');
+      } else {
+        localStorage.removeItem(LIKE_LS_PREFIX + this.fetched.id);
+      }
+    } catch {
+      console.warn('Could not set liked state to LS');
+    }
+
     this.submit();
   }
 
@@ -133,7 +157,7 @@ export class DetailComponent extends HooksWatcher implements OnInit {
       });
   }
 
-  public removeComment(id: number): void {
+  public deleteComment(id: number): void {
     this.feeds.deleteComment(id)
       .pipe(this.takeUntilDestroyed())
       .subscribe(() => {

@@ -9,8 +9,6 @@ export class FakeSocketEventsService {
   public feedCreated: Subject<void> = new Subject(); 
   public feedCommented: Subject<number> = new Subject(); 
 
-  constructor() { }
-
   public simulateFeedCreated(): void {
     this.feedCreated.next();
   }

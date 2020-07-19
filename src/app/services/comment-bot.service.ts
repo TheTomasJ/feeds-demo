@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FeedsService } from './feeds.service';
-import { Subject, timer } from 'rxjs';
+import { timer } from 'rxjs';
 import { FakeSocketEventsService } from './fake-socket-events.service';
 import { HooksWatcher } from '../models/hooks-watcher';
 import { Feed } from '../models/feeds';
