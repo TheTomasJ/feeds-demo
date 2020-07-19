@@ -13,7 +13,10 @@ const additionalDataDelimiter: string = ':|:|:';
 })
 export class FeedsService {
 
-  constructor(private http: HttpClient, private session: SessionService) {
+  constructor(
+    private http: HttpClient,
+    private session: SessionService,
+  ) {
   }
 
   private parser: (feed: Feed) => Feed = (feed: Feed) => {

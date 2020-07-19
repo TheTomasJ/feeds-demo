@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PaletteService } from './services/palette.service';
+import { CommentBotService } from './services/comment-bot.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,11 @@ import { PaletteService } from './services/palette.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(pallete: PaletteService) {
+  constructor(
+    pallete: PaletteService,
+    bots: CommentBotService
+  ) {
     pallete.setMode(false);
+    bots.startBots();
   }
 }

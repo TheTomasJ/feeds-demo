@@ -5,6 +5,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Feed } from 'src/app/models/feeds';
 import { HooksWatcher } from 'src/app/models/hooks-watcher';
 import { SessionService } from 'src/app/services/session.service';
+import { FakeSocketEventsService } from 'src/app/services/fake-socket-events.service';
 
 @Component({
   selector: 'app-detail',
@@ -26,7 +27,8 @@ export class DetailComponent extends HooksWatcher implements OnInit {
     private feeds: FeedsService,
     private route: ActivatedRoute,
     private router: Router,
-    public session: SessionService
+    public session: SessionService,
+    private fakeSockets: FakeSocketEventsService
   ) {
     super();
     this.commentGroup.patchValue({
@@ -40,6 +42,14 @@ export class DetailComponent extends HooksWatcher implements OnInit {
     } else {
       this.fetchByID();
     }
+
+    this.fakeSockets.feedCommented
+      .pipe(this.takeUntilDestroyed())
+      .subscribe(feedID => {
+        if(feedID === this.fetched.id) {
+          this.fetchByID();
+        }
+      });
   }
 
   private fetchByID(): void {
@@ -94,6 +104,7 @@ export class DetailComponent extends HooksWatcher implements OnInit {
       this.feeds.createFeed(this.formGroup.value)
         .pipe(this.takeUntilDestroyed())
         .subscribe(() => {
+          this.fakeSockets.simulateFeedCreated();
           this.router.navigateByUrl('/feeds');
         });
     }
