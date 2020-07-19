@@ -74,6 +74,8 @@ button {
     background-color: $bg-1;
     border-radius: 8px;
     padding: 16px;
+    max-width: 100%;
+    max-width: fit-content;
 }
 
 .link {
