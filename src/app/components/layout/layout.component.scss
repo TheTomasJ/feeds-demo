@@ -22,10 +22,18 @@
     overflow: auto;
 }
 
+.begin {
+    margin-right: auto;
+    display: flex;
+}
+
 .brand {
     font-size: 20px;
     padding: 14px 24px;
-    margin-right: auto;
+}
+
+.add-new {
+    padding-top: 14px;
 }
 
 .session-info {
@@ -36,13 +44,6 @@
     .user, .action {
         padding: 14px 8px;
         margin-left: 8px;
-    }
-    
-    .action {
-        cursor: pointer;
-        &:hover {
-            background-color: $bg-2;
-        }
     }
 }
 

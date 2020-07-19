@@ -1,5 +1,8 @@
 <div class="nav">
-    <div class="brand">Feeds demo</div>
+    <div class="begin">
+        <div class="brand">Feeds demo</div>
+        <div class="add-new link" [routerLink]="['/feeds/new']">Add new</div>
+    </div>
     <div class="icon" (click)="palette.toggle()">
         <img *ngIf="palette.darkMode; else normal" src="/assets/sun-stroke.svg">
         <ng-template #normal>
@@ -9,9 +12,9 @@
     <div class="session-info">
         <div class="user">{{ session.displayName }}</div>
 
-        <div *ngIf="session.data; else anonymous" class="action" (click)="session.logout()">Log Out</div>
+        <div *ngIf="session.data; else anonymous" class="action link" (click)="session.logout()">Log Out</div>
         <ng-template #anonymous>
-            <div class="action" [routerLink]="['/login']">Log In</div> 
+            <div class="action link" [routerLink]="['/login']">Log In</div> 
         </ng-template>
     </div>
 </div>

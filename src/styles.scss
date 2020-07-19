@@ -75,3 +75,13 @@ button {
     border-radius: 8px;
     padding: 16px;
 }
+
+.link {
+    color: $color-primary;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
