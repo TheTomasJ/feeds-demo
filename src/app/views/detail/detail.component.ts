@@ -48,7 +48,7 @@ export class DetailComponent extends HooksWatcher implements OnInit {
     this.fakeSockets.feedCommented
       .pipe(this.takeUntilDestroyed())
       .subscribe(feedID => {
-        if(feedID === this.fetched.id) {
+        if(feedID === this.fetched?.id) {
           this.fetchByID();
         }
       });

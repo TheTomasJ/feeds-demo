@@ -20,7 +20,7 @@ input, textarea {
     }
 
     .main {
-        flex: 3 0 360px;
+        flex: 3 1 360px;
         background-color: $bg-1;
         height: fit-content;
 
@@ -48,7 +48,7 @@ input, textarea {
         }
     }
     .comments {
-        flex: 1 0 260px;
+        flex: 1 1 260px;
         max-width: 100%;
         
         .header {

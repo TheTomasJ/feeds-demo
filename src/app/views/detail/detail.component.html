@@ -7,7 +7,7 @@
     <div class="container card" *ngIf="editMode; else normalMode">
         <input [formControl]="formGroup.get('name')" placeholder="Name">
         <textarea [formControl]="formGroup.get('text')" placeholder="Text"></textarea>
-        <button (click)="submit()">Save feed</button>
+        <button [disabled]="!formGroup.get('name').value || !formGroup.get('text').value" (click)="submit()">Save feed</button>
     </div>
     <ng-template #normalMode>
         <div class="display-mode">
