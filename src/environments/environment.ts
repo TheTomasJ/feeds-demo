@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  feedsURI: 'https://fe-zadanie.herokuapp.com'
+  feedsURI: 'https://fe-zadanie.herokuapp.com',
+  baseHref: '/'
 };
 
 /*

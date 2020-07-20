@@ -16,5 +16,8 @@
     <div class="filtered card" *ngIf="displayedFeeds.length === 0 && allFeeds.length > 0">
         No feeds for query <strong>{{ filter.value }}</strong>
     </div>
+    <div class="filtered card" *ngIf="loading">
+        Loading ..
+    </div>
     <button class="add-new" [routerLink]="['/feeds/new']">Add new feed</button>
 </div>

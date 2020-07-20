@@ -16,6 +16,7 @@ export class ListComponent extends HooksWatcher implements OnInit {
   public displayedFeeds: Feed[] = [];
   public allFeeds: Feed[] = [];
   public filter: FormControl = new FormControl('');
+  public loading: boolean = true;
 
   constructor(private feeds: FeedsService) {
     super();
@@ -27,6 +28,7 @@ export class ListComponent extends HooksWatcher implements OnInit {
       .subscribe(feeds => {
         this.allFeeds = feeds;
         this.applyFilter();
+        this.loading = false;
       });
     
     this.filter.valueChanges

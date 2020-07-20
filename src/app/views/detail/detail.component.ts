@@ -6,6 +6,7 @@ import { Feed } from 'src/app/models/feeds';
 import { HooksWatcher } from 'src/app/models/hooks-watcher';
 import { SessionService } from 'src/app/services/session.service';
 import { FakeSocketEventsService } from 'src/app/services/fake-socket-events.service';
+import { environment } from 'src/environments/environment';
 
 const LIKE_LS_PREFIX = 'liked';
 
@@ -16,6 +17,7 @@ const LIKE_LS_PREFIX = 'liked';
 })
 export class DetailComponent extends HooksWatcher implements OnInit {
 
+  public baseHref = environment.baseHref;
   private detailID: string = this.route.snapshot.paramMap.get('id'); 
   public editMode: boolean = this.detailID === 'new';
   public liked: boolean;

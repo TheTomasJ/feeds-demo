@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="remove" (click)="deleteComment(comment.id)">
-                        <img src="../../../assets/cancel-circle.svg">
+                        <img [src]="baseHref + 'assets/cancel-circle.svg'">
                     </div>
                 </div>
                 <div class="new-comment">
