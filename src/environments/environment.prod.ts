@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  feedsURI: 'http://fe-zadanie.herokuapp.com/'
+  feedsURI: 'https://fe-zadanie.herokuapp.com/'
 };

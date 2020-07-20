@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  feedsURI: 'http://fe-zadanie.herokuapp.com'
+  feedsURI: 'https://fe-zadanie.herokuapp.com'
 };
 
 /*
