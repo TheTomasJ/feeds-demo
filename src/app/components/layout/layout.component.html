@@ -4,9 +4,9 @@
         <div class="add-new link" [routerLink]="['/feeds/new']">Add new</div>
     </div>
     <div class="icon" (click)="palette.toggle()">
-        <img *ngIf="palette.darkMode; else normal" src="/assets/sun-stroke.svg">
+        <img *ngIf="palette.darkMode; else normal" src="../../../assets/sun-stroke.svg">
         <ng-template #normal>
-            <img src="/assets/moon-stroke.svg">
+            <img src="../../../assets/moon-stroke.svg">
         </ng-template>
     </div>
     <div class="session-info">
